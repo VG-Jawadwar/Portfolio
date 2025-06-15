@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vaibhav's Portfolio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+
+<style>
+
+.about-mf .box-shadow-full {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.about-mf .about-img {
+  margin-bottom: 2rem;
+}
+
+.about-mf .about-img img {
+  margin-left: 10px;
+}
+
+
+.skill-mf .progress {
+  /* background-color: #cde1f8; */
+  margin: .5rem 0 1.2rem 0;
+  border-radius: 0;
+  height: .7rem;
+}
+
+.skill-mf .progress .progress-bar {
+  height: .7rem;
+  background-color: #ffbd39;
+}
+
+
+/* Animation styles */
+#typing-animation {
+  position: relative;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(20, end) infinite;
+}
+
+#typing-animation:before {
+  content: "";
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #ccc;
+  animation: typing-cursor 0.5s ease-in-out infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typing-cursor {
+  from {
+    width: 5px;
+  }
+  to {
+    width: 0;
+  }
+}
+
+
+/* project image zoom effect */
+
+.zoom-effect {
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+}
+
+.zoom-effect:hover {
+  transform: scale(1.1);
+}
+
+.profile
+{
+	position: absolute;
+    top: 22%;
+    right: -9%;
+	width: 60%;
+	height: 60%;
+}
+
+.profile::before {
+    content: '';
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-top: 10px solid #ffc107;
+    border-left: 10px solid #ffc107;
+    left: -10px;
+    top: -20px;
+    z-index: 1;
+}
+
+.profile::after {
+    content: '';
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-bottom: 10px solid #ffc107;
+    border-right: 10px solid #ffc107;
+    right: 260px;
+    bottom: -10px;
+    z-index: 1;
+}
+
+@media (max-width: 769px) {
+  .profile {
+    position: relative !important; /* or relative */
+    width: 90%;
+    height: auto;
+	right: -23px;
+    margin-top: 50px;
+  }
+
+  .profile::before {
+    content: '';
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-top: 10px solid #ffc107;
+    border-left: 10px solid #ffc107;
+    left: -10px;
+    top: -20px;
+    z-index: 1;
+}
+
+.profile::after {
+    content: '';
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-bottom: 10px solid #ffc107;
+    border-right: 10px solid #ffc107;
+    right: -1%;
+    bottom: -40px;
+    z-index: 1;
+}
+
+.profile-About
+{
+	position: relative !important; /* or relative */
+    width: 85%;
+	margin-left: 30px;
+    height: auto;
+}
+}
+
+  .box {
+            text-align: center;
+            position: relative;
+    }
+
+	.box #glowButton {
+		border-radius: 50px !important;
+		border: 1px !important;
+		/* cursor: pointer; */
+		position: relative;
+		overflow: hidden;
+		transition: background 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+	}
+
+	.box #glowButton:hover {
+		background: transparent !important;
+		color: white !important;
+		border-color: white !important;
+		box-shadow: 0 0 25px rgb(0, 194, 253);
+	}
+
+	/* Diamond Shape Stars */
+	.stars {
+		position: absolute;
+		width: 8px;
+		height: 8px;
+		background-color: white;
+		transform: rotate(45deg);
+		box-shadow: 0 0 10px white;
+		opacity: 1;
+		transition: transform 0.5s ease-out, opacity 0.5s ease-in-out;
+	}
+
+	.stars.large {
+		width: 10px;
+		height: 10px;
+	}
+
+	.loader-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+	animation: fadeoutAnimation ease 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+	overflow: hidden;
+	}
+
+/* Existing loader animation */
+.loader {
+  width: 45px;
+  aspect-ratio: 1;
+  --c: no-repeat linear-gradient(white 0 0);
+  background: 
+    var(--c) 0%   50%,
+    var(--c) 50%  50%,
+    var(--c) 100% 50%;
+  background-size: 20% 100%;
+  animation: l1 1s infinite linear;
+}
+
+@keyframes l1 {
+  0%   { background-size: 20% 100%,20% 100%,20% 100% }
+  33%  { background-size: 20% 10%, 20% 100%, 20% 100% }
+  50%  { background-size: 20% 100%, 20% 10%, 20% 100% }
+  66%  { background-size: 20% 100%, 20% 100%, 20% 10% }
+  100% { background-size: 20% 100%,20% 100%,20% 100% }
+}
+
+ @keyframes fadeoutAnimation {
+		0% {
+			opacity: 1;
+		}
+
+		100% {
+			opacity: 0;
+			visibility: hidden;
+		}
+    }
+
+#btn-hover-animation:hover
+{
+	background: transparent !important;
+		color: white !important;
+		border-color: white !important;
+		box-shadow: 0 0 25px rgb(0, 194, 253);	
+	
+}
+
+</style>
+
+
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+	  
+	<div id="loader" class="loader-container">
+  		<div class="loader"></div>
+	</div>
+	
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Vaibhav Jawadwar</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
+	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+	  <section id="home-section" class="hero">
+
+		<div class="col-lg-6 col-md-6 d-flex align-self-end profile ">
+			<img src="images/MyImg2-photoaidcom-cropped.jpg" class="img-fluid rounded b-shadow-a">
+		</div>
+
+		  <div class="home-slider  owl-carousel">
+	       <div class="slider-item">
+	      	<div class="overlay"></div>
+	         <div class="container">
+	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png);">
+	          	 <div class="overlay"></div>
+	          	</div>
+		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		          	<div class="text">
+		          		<span class="subheading">Hello!</span>
+			            <h1 class="mb-4 mt-3">I'm <span>Vaibhav Jawadwar</span></h1>
+
+						<!-- Element to contain animated typing -->
+						<span id="typing-animation"></span>
+
+						<script>
+
+						// Initialize the typing animation
+						const typingAnimationElement = document.getElementById('typing-animation');
+
+						// Create an array of typing text
+						const typingTexts = [
+						'Engineer  ',
+						'Developer  ',
+						'Working Professional   ',
+						'Quick Learner',
+						];
+
+						// Create a function to display the typing animation for a given text
+						function playTypingAnimation(text) {
+						// Loop through each character and add it to the element
+						for (let i = 0; i < text.length; i++) {
+							setTimeout(() => {
+							typingAnimationElement.textContent += text[i];
+							}, i * 200); // Increase the delay to slow down the typing animation
+						}
+
+						// Once the animation is complete, reset the text and start over
+						setTimeout(() => {
+							typingAnimationElement.textContent = '';
+							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+						}, text.length * 200);
+						}
+
+						// Start the typing animation loop
+						playTypingAnimation(typingTexts[0]);
+
+						</script>
+
+						<br>
+						<br>
+			            <h2>An Student at GT&MC in Computer Engineering</h2>
+						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
+						<!-- <br> -->
+			            <p><a href="https://www.linkedin.com/in/vaibhav-jawadwar/" class="btn btn-primary py-3 px-4" id = "btn-hover-animation">Linkedin</a> 
+							<a href="https://github.com/VG-Jawadwar" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+		            </div>
+		          </div>
+	        	</div>
+	        </div>
+	      </div>
+		</div>
+
+    </section>
+
+
+
+    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+    	<div class="container">
+			<div class="row">
+				<div class="row d-flex align-items-stretch">
+					<div class="col-md-6 col-lg-5 d-flex">
+						<div class="img-about img d-flex align-items-stretch">
+							<div class="overlay">
+								<div class="row">
+									<div class="col-sm-6 col-md-5">
+									  <div class="about-img profile-About">
+										<img src="images/MyImg-photoaidcom-cropped.jpg" class="img-fluid rounded b-shadow-a" alt="">
+									  </div>
+									</div>
+									<div class="col-sm-6 col-md-7">
+									  <div class="about-info">
+										<p><span class="title-s">Name: </span> <span>Vaibhav Jawadwar</span></p>
+										<p><span class="title-s">Role: </span> <span>Java Developer | Flutter Developer</span></p>
+										<p><span class="title-s">Address: </span> <span>Maharashtra, India</span></p>
+									  </div>
+									</div>
+								  </div>
+
+								<div class="skill-mf">
+									<p class="title-s text-center">Skills</p>
+
+									<span>FLUTTER FRAMEWORK (Dart)</span> <span class="pull-right">90%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+										aria-valuemax="100"></div>
+									</div>
+
+									<span>JAVA </span> <span class="pull-right">85%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+
+									<span>MySQL</span> <span class="pull-right">80%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									
+									<span>PYTHON</span> <span class="pull-right">75%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+					
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+						<div class="row justify-content-start pb-3">
+							<div class="col-md-12 heading-section ftco-animate">
+								
+								<h1 class="big">About</h1>
+								<h2 class="mb-4">About Me</h2>
+								
+								<p>With over 6 months of hands-on experience in software development, I specialize in creating Android and desktop-based applications using Java and Flutter. Backed by a diploma in Computer Engineering, I have successfully designed and deployed multiple projects focused on clean UI/UX and intuitive functionality. I am passionate about building efficient, user-centric solutions and constantly aim to improve system performance, scalability, and real-world impact through thoughtful development practices.</p>
+								<ul class="about-info mt-4 px-md-0 px-2">
+									<li class="d-flex"><span>Profile:</span> <span>Software Developer</span></li>
+									<li class="d-flex"><span>Education:</span> <span>Diploma In Engineering</span></li>
+									<li class="d-flex"><span>Language:</span> <span>Java, Dart, Python(Beginner), JavaScript(Begineer)</span></li>
+									<li class="d-flex"><span>Framework's and API's:</span> <span>Flutter Framework, REST API(Beginner)</span></li>
+									<li class="d-flex"><span>Database:</span> <span>MySql, Firebase Cloud Storage(Beginner)</span></li>
+									<li class="d-flex"><span>Interest:</span> <span>Software development, Automation, Android development &amp; API's Integration</span></li>
+									
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="counter-wrap ftco-animate d-flex mt-md-3">
+							<div class="text">
+								<p class="mb-4">
+									<span class="number" data-number="7">0</span> <span>+</span>
+									<span>&nbsp; Projects completed</span>
+								</p>
+								<p><a href="https://www.linkedin.com/in/vaibhav-jawadwar/" class="btn btn-primary py-3 px-3" id = "btn-hover-animation">LinkedIn</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
+
+
+
+	
+    <section class="ftco-section ftco-no-pb" id="resume-section">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5">
+          <div class="col-md-10 heading-section text-center ftco-animate">
+          	<h1 class="big big-2">Resume</h1>
+            <h2 class="mb-4">Resume</h2>
+            <p>Detail-orientated software developer who has a great deal of experience with java (using swing or awt) and with building intuitive mobile/desktop applications using Flutter as a programming framework for user interaction. Breadth of experience through Real-time web applications, data-driven solutions utilizing REST APls, loT, and Firebase. Because of my academic and internship careers, l've been able to see projects from Ul/UX design through backend and deployment. Looking to build impactful tech solutions with a focus on performance, scale, and UX.</p>
+          </div>
+        </div>
+
+		<div class="row">
+			<h1 class="big-4" style="font-weight: 700;">Experience</h1>
+			<div class="underline"></div>
+		</div>
+		<br>
+		
+		<div class="row">
+				<div class="col-md-6">
+					<div class="resume-wrap ftco-animate">
+						<span class="date">Jun 2024-Jul 2024</span>
+						<h2>Flutter Development Intern.</h2>
+						<span class="position">Dream Webies PVT. LTD.</span>
+						<p></p>
+							<ul>
+								<li>Finished a Flutter Development lnternship course at Dream Webies Pvt. Ltd., working in cross platform mobile app development.</li>
+								<li>Practiced with Flutter framework and Dart programming language in real-world settings and gained efficacy for building large-scale and responsive Android applications.</li>
+								<li>Worked with Ul components, REST APl integration, and application performance to ensure working versions of Android applications on various devices types.</li>
+							</ul>
+					</div>
+
+				</div>
+
+				<div class="col-md-6">
+					<div class="resume-wrap ftco-animate">
+						<span class="date">Jun 2024-Jul 2024</span>
+						<h2>Java Development Intern.</h2>
+						<span class="position">Growintern</span>
+						<p> 
+							<ul>
+								<li>While on internship at Growintern l have developed interactive GUl applications using Java Swing and AWT.</li>
+								<li>have created a Quiz Application in which the quiz is composed of timer-based questions, a scoring system, and an easy-to-use GUl.</li>
+								<li>l focused on the core Java concepts, event-driven programming, and intuitive interface and user experience design.</li>
+							</ul>
+						</p>
+					</div>
+
+				</div>
+
+				</div>
+			</div>
+
+		<br>
+		<br>
+
+		<div class="row">
+			<h1 class="big-4">Education</h1>
+			<div class="underline"></div>
+		</div>
+		<br>
+		
+			<div class="row">
+    			<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">2022-2025</span>
+    					<h2>Diploma in Engineering</h2>
+    					<span class="position">Gramin Technical & Management Campus</span>
+						<p class="mt-4">Nanded, Maharashtra</p>
+    					
+    				</div>
+    			</div>
+    		</div>
+
+    		<div class="row justify-content-center mt-5">
+    			<div class="col-md-6 text-center ftco-animate box">
+    				<p>
+						<a href="https://drive.google.com/uc?export=download&id=1RnEQq3nOOWzNWGZiusNmSA0Zn2EmLeK3" class="btn btn-primary py-4 px-5" id="glowButton">
+						Download CV
+						</a>
+					</p>
+    			</div>
+    		</div>
+    </section>
+
+			<script>
+    const button = document.getElementById("glowButton");
+    const container = document.querySelector(".box");
+    let stars = [];
+
+    button.addEventListener("mouseenter", () => {
+        removeStars();
+        for (let i = 0; i < 5; i++) {
+            const star = document.createElement("div");
+            star.classList.add("stars");
+            if (Math.random() > 0.5) star.classList.add("large");
+
+            container.appendChild(star);
+
+            const buttonRect = button.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+
+            const startX = Math.random() * button.offsetWidth + (button.offsetLeft);
+            const startY = Math.random() * button.offsetHeight + (button.offsetTop);
+
+
+            star.style.left = `${startX}px`;
+            star.style.top = `${startY}px`;
+
+            setTimeout(() => {
+                const angle = Math.random() * 2 * Math.PI;
+                const distance = Math.random() * 50 + 20;
+                const moveX = Math.cos(angle) * distance;
+                const moveY = Math.sin(angle) * distance;
+                star.style.transform = `rotate(45deg) translate(${moveX}px, ${moveY}px)`;
+                star.style.opacity = "1";
+            }, 50);
+
+            stars.push(star);
+        }
+    });
+
+    button.addEventListener("mouseleave", () => {
+        removeStars();
+    });
+
+    function removeStars() {
+        stars.forEach(star => {
+            star.style.opacity = "0";
+            setTimeout(() => star.remove(), 500);
+        });
+        stars = [];
+    }
+</script>
+
+
+   
+
+    <section class="ftco-section" id="project-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Projects</h1>
+            <h2 class="mb-4">Projects</h2>
+            <p>Below are the sample Android and desktop projects on MySQL, Java, Dart(Flutter), Firebase &amp API.</p>
+          </div>
+        </div>
+        <div class="row d-flex">
+
+			<div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="https://github.com/VG-Jawadwar/HydroSense" class="block-20 zoom-effect" style="background-image: url('images/HydroSense.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+
+                <h3 class="heading"><a href="https://github.com/VG-Jawadwar/HydroSense">HydroSense Application</a></h3>
+                <p>HydroSense is an Android application designed for real-time water quality monitoring using IoT-based sensors. Built with Flutter, it displays readings like TDS, pH, turbidity, and temperature, collected via Arduino and sent to the app through Firebase. The app features dynamic dashboards, historical analysis graphs, and alert notifications when water quality exceeds safe limits. I developed the full mobile interface, integrated Firebase for real-time data syncing, and ensured accurate visualization of sensor data.</p>
+              </div>
+            </div>
+          </div>
+		  
+
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="https://github.com/VG-Jawadwar/JobConnect" class="block-20 zoom-effect" style="background-image: url('images/JobConnect.png');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+
+                <h3 class="heading"><a href="https://github.com/VG-Jawadwar/JobConnect">JobConnect Application</a></h3>
+                <p>Job Connect is a Flutter-based Android application designed to simplify the job search process for users. It enables job seekers to browse listings and apply, while employers can post and manage vacancies. The app features secure login, smooth navigation, and a clean, user interface. I managed the entire development process, from UI design to backend integration using APIs and local storage. The project emphasizes a reliable and user-centric platform to effectively connect talent with opportunities.</p>
+              </div>
+            </div>
+          </div>
+
+		  <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="https://github.com/VG-Jawadwar/ClearDues" class="block-20 zoom-effect" style="background-image: url('images/ClearDues2.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+
+                <h3 class="heading"><a href="https://github.com/VG-Jawadwar/ClearDues">ClearDues Application</a></h3>
+                <p>ClearDues is a Java-based desktop application developed to simplify student fee management in academic institutions. It enables administrators to view dues, send email reminders, update student records, and generate payment receipts. The application integrates JavaMail API for email communication and iTextPDF for automated receipt generation. I designed and implemented the complete system, including modules for login, dues tracking, student updates, and payment processing. This project ensures efficient, paperless, and organized fee handling through a user-friendly interface.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+	<br>
+    </section>
+
+	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
+      <div class="container">
+		<div class="row d-md-flex align-items-center">
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="10">0</strong>
+                <span>Achievements</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="8">0</strong>
+                <span>Projects</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="100">0</strong>
+                <span>Cups of coffee</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	
+	  <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
+				<div class="row justify-content-center">
+					<div class="col-md-7 ftco-animate text-center">
+						<h2>More projects on<span> Github  </span> </h2>
+						<div class="heading"> <h4> I love to solve business problems &amp; uncover hidden data stories </h4>
+						<br>
+						<p><a href="https://github.com/VG-Jawadwar" class="btn btn-primary py-3 px-5">GitHub</a></p>
+						</div>
+					</div>
+				</div>
+		</div>
+	</section>
+
+
+
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+      <div class="container">
+      	<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Contact</h1>
+            <h2 class="mb-4">Contact Me</h2>
+            <p>Below are the details to reach out to me!</p>
+          </div>
+        </div>
+
+        <div class="row d-flex contact-info mb-5">
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-map-signs"></span>
+          		</div>
+          		<h3 class="mb-4">Address</h3>
+	            <p>Maharashtra, India</p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-phone2"></span>
+          		</div>
+          		<h3 class="mb-4">Contact Number</h3>
+	            <p><a href="tel://0101010101">(+91) 7083586756</a></p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-paper-plane"></span>
+          		</div>
+          		<h3 class="mb-4">Email Address</h3>
+	            <p><a href="mailto:vaibhavjawadwar5@gmail.com">vaibhavjawadwar5@gmail.com</a></p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-globe"></span>
+          		</div>
+          		<h3 class="mb-4">Download Resume</h3>
+	            <p><a href="https://drive.google.com/uc?export=download&id=1RnEQq3nOOWzNWGZiusNmSA0Zn2EmLeK3">Click Here</a></p>
+	          </div>
+          </div>
+
+		  <div class="container">
+			<br>
+			<br>
+			<div class="row justify-content-center">
+				<div class="col-md-7 ftco-animate text-center">
+					<h2>Have a<span> Question?  </span> <a href="mailto:vaibhavjawadwar5@gmail.com" class="btn btn-primary py-3 px-5" id = "btn-hover-animation">Click Here</a> </h2>
+				</div>
+			</div>
+				<br>
+					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
+					  <li class="ftco-animate normal-txt">Find me on  </li>
+					  
+					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/vaibhav-jawadwar/"><span class="icon-linkedin"></span></a></li>  
+				      <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+					  <li class="ftco-animate"><a href="https://github.com/VG-Jawadwar"><span class="icon-github"></span></a></li>
+					</ul>
+				<br>
+		   </div>
+   </div>
+ </section>
+	
+    <footer class="ftco-footer ftco-section">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-12 text-center">
+  
+			  <p> Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Website is made by Vaibhav Jawadwar </p>
+			</div>
+		  </div>
+		</div>
+	  </footer>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  
+  <script src="js/main.js"></script>
+
+
+<!-- AtoZSEOTools Counter Code START -->
+<div style="display: flex; justify-content: center; padding-bottom: 10px;">
+<img src="https://www.coolseotools.com/website-visitor-counter/count/&style=style11&show=u&num=5&uid=bqE"  title="Web Counter" alt="Thank You For Visiting!!!"/>
+</div>
+<!-- AtoZSEOTools Counter Code END -->
+
+  </body>
+</html>
